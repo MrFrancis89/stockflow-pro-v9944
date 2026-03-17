@@ -9,6 +9,7 @@
 
 import { configurarListenersConfirm, mostrarConfirmacao } from './confirm.js';
 import { iniciarNavegacao }           from './navegacao.js';
+import { iniciarSidebar, sidebarSetVersion } from './sidebar.js';
 import { iniciarCalendario, agendarSnapshot, fecharCalendario } from './calendario.js';
 import { iniciarMassa }               from './massa.js';
 import { iniciarProducao }            from './producao.js';
@@ -314,6 +315,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 5. Navegação
     iniciarNavegacao();
+
+    // 5.1a Sidebar lateral (v9.9.44)
+    iniciarSidebar();
+    sidebarSetVersion('v' + VERSAO_ATUAL);
 
     // 5.1 Popover de versão no logo
     (function _initLogoVersionPopover() {
