@@ -1,4 +1,42 @@
-## v9.9.44 — 17/03/2026 — Bump de Versão Global
+## v9.9.44 — 17/03/2026 — Sidebar Lateral + Bump de Versão Global
+
+### FEATURE: Sidebar lateral deslizante (sidebar.js)
+- **Novo arquivo `sidebar.js`**: drawer lateral estilo GitHub Mobile, 100% compatível
+  com todos os temas do projeto (Dark Premium, Midnight, Arctic, Forest).
+- **Botão hambúrguer** no canto esquerdo do `.header-container` com animação de
+  três barras → X ao abrir, usando CSS transitions do sistema de design existente.
+- **Overlay** com `backdrop-filter: blur` fecha ao tocar fora do painel — idêntico
+  ao padrão dos outros overlays do projeto (receitas-sheet, modal, alerta-sheet).
+- **Swipe-right** na borda esquerda da tela abre a sidebar; **swipe-left** dentro
+  do painel fecha — implementado com Edge Capture Zone (mesmo mecanismo da FT).
+- **Estrutura extensível declarativa**: novos itens/seções são adicionados apenas
+  em `SIDEBAR_SECTIONS[]` sem alterar nenhum outro arquivo.
+- **Indicador de item ativo** com barra vertical azul (idêntico ao GitHub).
+- **Chip "Em breve"** para funcionalidades futuras (NF-e, Fornecedores, Multi-usuário).
+- **Estado persistido** em `localStorage('sidebarLastSection')`.
+- **Evento `sidebarAction`** no `document` para integração modular futura.
+- **CSS adicionado ao `style.css`**: usa exclusivamente CSS custom properties
+  (`--surface`, `--accent-primary`, `--glass-bg`, etc.) — zero hardcoded colors.
+- **API pública**: `iniciarSidebar()`, `sidebarSetVersion(v)`, `abrirSidebar()`, `fecharSidebar()`.
+
+### Sincronização de versão
+- `VERSAO_ATUAL` em `main.js`: `9.9.43` → `9.9.44`
+- `VERSION` e cache key em `sw.js`: `stockflow-v9-9-43` → `stockflow-v9-9-44`
+- `manifest.json` — campos `version` e `description`: `9.9.43` → `9.9.44`
+- `package.json` — campo `version`: `9.9.43` → `9.9.44`
+- Cabeçalhos de `pwa-install.js` e `pwa-install.css` atualizados
+
+### Arquivos modificados
+- `main.js` (import + chamada `iniciarSidebar` + `sidebarSetVersion`)
+- `style.css` (seção `§ SIDEBAR LATERAL` adicionada ao final)
+- `sw.js`, `manifest.json`, `package.json`, `pwa-install.js`, `pwa-install.css`
+
+### Arquivos novos
+- `sidebar.js`
+
+---
+
+
 
 ### Sincronização de versão
 - `VERSAO_ATUAL` em `main.js`: `9.9.43` → `9.9.44`
